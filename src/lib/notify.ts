@@ -1,0 +1,6 @@
+const KEY='ta_reminders_v1';
+export function getReminders(){ try{ return JSON.parse(localStorage.getItem(KEY)||'{"treino":{"hour":9,"minute":0,"enabled":false},"checkin":{"hour":20,"minute":0,"enabled":false}}') }catch{ return {treino:{hour:9,minute:0,enabled:false},checkin:{hour:20,minute:0,enabled:false}} } }
+export function saveReminders(s){ localStorage.setItem(KEY, JSON.stringify(s)) }
+export async function ensurePermission(){ try{ if(!('Notification' in window)) return false; if(Notification.permission==='granted') return true; const r=await Notification.requestPermission(); return r==='granted'; }catch{ return false } }
+export function startTicker(){ setInterval(()=>{ const s=getReminders(); const now=new Date(); const h=now.getHours(), m=now.getMinutes(); if(s.treino.enabled&&h===s.treino.hour&&m===s.treino.minute) safeNotify('Hora do treino','Bora pro treino, Team Araújo! 💪'); if(s.checkin.enabled&&h===s.checkin.hour&&m===s.checkin.minute) safeNotify('Check-in diário','Registre peso/medidas e foto.'); }, 60000); }
+function safeNotify(title, body){ try{ if(!('Notification' in window)) return; if(Notification.permission!=='granted') return; new Notification(title,{ body }); }catch{} }

@@ -1,0 +1,4 @@
+const KEYS=['ta_session_v1','ta_users_v1','ta_students_v1','ta_plans_v1','ta_chat_v1','ta_logs_v1','ta_checkins_v1','ta_theme_v1','ta_reminders_v1','ta_email_cfg_v1','ta_cloud_cfg_v1'];
+export function exportAll(){ const data={}; for(const k of KEYS){ try{ const v=localStorage.getItem(k); if(v!=null) data[k]=JSON.parse(v); }catch{} } const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='team-araujo-backup.json'; a.click(); URL.revokeObjectURL(url); }
+export function importAll(file){ return new Promise((resolve,reject)=>{ const rd=new FileReader(); rd.onload=()=>{ try{ const obj=JSON.parse(String(rd.result||'{}')); for(const [k,v] of Object.entries(obj)){ localStorage.setItem(k, JSON.stringify(v)); } resolve(); }catch(e){ reject(e);} }; rd.onerror=reject; rd.readAsText(file); }); }
+export function clearAll(){ localStorage.clear(); }

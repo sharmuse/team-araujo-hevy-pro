@@ -1,0 +1,6 @@
+export function listUsers(){ try{ return Object.values(JSON.parse(localStorage.getItem('ta_users_v1')||'{}')) }catch{ return [] } }
+export function listByRole(role){ return listUsers().filter(u=>u.role===role); }
+export function currentUser(){ try{ return JSON.parse(localStorage.getItem('ta_session_v1')||'{}') }catch{ return {} } }
+export function logout(){ try{ localStorage.removeItem('ta_session_v1'); }catch{} }
+export function signup(name,email,role,password){ const db = (()=>{ try{ return JSON.parse(localStorage.getItem('ta_users_v1')||'{}') }catch{ return {} } })(); if(db[email]) throw new Error('E-mail já cadastrado'); const u = { name, email, role, password }; db[email] = u; localStorage.setItem('ta_users_v1', JSON.stringify(db)); localStorage.setItem('ta_session_v1', JSON.stringify({ loggedIn:true, email, name, role })); return u; }
+export function login(email,password){ const db = (()=>{ try{ return JSON.parse(localStorage.getItem('ta_users_v1')||'{}') }catch{ return {} } })(); const u = db[email]; if(!u || u.password!==password) throw new Error('Credenciais inválidas'); localStorage.setItem('ta_session_v1', JSON.stringify({ loggedIn:true, email, name:u.name, role:u.role })); return u; }

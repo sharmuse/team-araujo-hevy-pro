@@ -1,0 +1,26 @@
+:root{color-scheme:dark;--bg:#0a0a0a;--text:#e5e5e5;--soft:#121214cc;--soft-border:#262626;--accent:#10B981;--accent-2:#059669}
+:root[data-theme='light']{color-scheme:light;--bg:#f7f7f7;--text:#111;--soft:#ffffff;--soft-border:#d9d9d9;--accent:#0ea5e9;--accent-2:#0284c7}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+.container{max-width:1200px;margin:0 auto;padding:16px}
+.header{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:20px}
+.brand{display:flex;gap:10px;align-items:center}
+.title{color:var(--accent);font-weight:800;font-size:22px}
+.badge{font-size:12px;opacity:.75}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.select,.input{background:color-mix(in srgb,var(--bg) 90%,#000 10%);color:var(--text);border:1px solid var(--soft-border);border-radius:12px;padding:6px 10px}
+.btn{padding:8px 12px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-2);color:#fff}
+.btn-ghost{padding:6px 8px;border-radius:10px;background:color-mix(in srgb,var(--bg) 80%,#000 20%);color:var(--text);border:1px solid var(--soft-border)}
+.card{background:var(--soft);border:1px solid var(--soft-border);border-radius:16px;padding:16px;margin-bottom:12px}
+.tabbar{display:flex;gap:8px;margin:8px 0 16px;flex-wrap:wrap}
+.tab{padding:8px 12px;border-radius:12px;border:1px solid var(--soft-border);background:var(--soft);color:var(--text)}
+.tab.active{border-color:var(--accent);background:var(--accent-2);color:#fff}
+.grid{display:grid;gap:12px}
+.kv{font-size:12px;opacity:.8}
+.table{width:100%;border-collapse:collapse;font-size:14px}
+.table th{text-align:left;border-bottom:1px solid var(--soft-border);padding:8px 0}
+.table td{border-bottom:1px solid color-mix(in srgb,var(--soft-border) 60%, transparent);padding:8px 0}
+.center{min-height:100vh;display:grid;place-items:center;padding:24px}
+.auth{width:100%;max-width:460px}
+.logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:20px}
+.print-wrap{max-width:900px;margin:0 auto}
+@media print{body{background:#fff;color:#000}.card{border:none;border-radius:0;padding:0}.title{color:#000}.tabbar,.row,.header{display:none !important}}

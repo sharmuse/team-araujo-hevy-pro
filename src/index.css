@@ -7,20 +7,20 @@ html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:
 .title{color:var(--accent);font-weight:800;font-size:22px}
 .badge{font-size:12px;opacity:.75}
 .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.select,.input{background:color-mix(in srgb,var(--bg) 90%,#000 10%);color:var(--text);border:1px solid var(--soft-border);border-radius:12px;padding:6px 10px}
-.btn{padding:8px 12px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-2);color:#fff}
-.btn-ghost{padding:6px 8px;border-radius:10px;background:color-mix(in srgb,var(--bg) 80%,#000 20%);color:var(--text);border:1px solid var(--soft-border)}
+.select,.input{background:rgba(255,255,255,0.03);color:var(--text);border:1px solid var(--soft-border);border-radius:12px;padding:6px 10px}
+.btn{padding:8px 12px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-2);color:#fff;cursor:pointer}
+.btn-ghost{padding:6px 8px;border-radius:10px;background:rgba(255,255,255,0.02);color:var(--text);border:1px solid var(--soft-border);cursor:pointer}
 .card{background:var(--soft);border:1px solid var(--soft-border);border-radius:16px;padding:16px;margin-bottom:12px}
 .tabbar{display:flex;gap:8px;margin:8px 0 16px;flex-wrap:wrap}
-.tab{padding:8px 12px;border-radius:12px;border:1px solid var(--soft-border);background:var(--soft);color:var(--text)}
+.tab{padding:8px 12px;border-radius:12px;border:1px solid var(--soft-border);background:var(--soft);color:var(--text);cursor:pointer}
 .tab.active{border-color:var(--accent);background:var(--accent-2);color:#fff}
 .grid{display:grid;gap:12px}
 .kv{font-size:12px;opacity:.8}
 .table{width:100%;border-collapse:collapse;font-size:14px}
 .table th{text-align:left;border-bottom:1px solid var(--soft-border);padding:8px 0}
-.table td{border-bottom:1px solid color-mix(in srgb,var(--soft-border) 60%, transparent);padding:8px 0}
+.table td{border-bottom:1px solid rgba(255,255,255,0.06);padding:8px 0}
 .center{min-height:100vh;display:grid;place-items:center;padding:24px}
 .auth{width:100%;max-width:460px}
 .logo{display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:20px}
 .print-wrap{max-width:900px;margin:0 auto}
-@media print{body{background:#fff;color:#000}.card{border:none;border-radius:0;padding:0}.title{color:#000}.tabbar,.row,.header{display:none !important}}
+@media print{body{background:#fff;color:#000}.card{border:none;border-radius:0;padding:0}.title{color:#000}.tabbar,.row,.header{display:none!important}}

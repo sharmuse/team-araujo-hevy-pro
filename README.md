@@ -1,5 +1,16 @@
-# Team Araújo — Hevy Pro (v12)
+# Team Araújo — Hevy Pro (v12.1)
 
-Gerado: 2025-11-03 13:55 UTC
+Gerado: 2025-11-03 15:01 UTC
 
-Consulte o guia no chat para deploy Netlify/Firebase.
+Vercel-ready: Node >=18, Vite, SPA redirects.
+
+## Local
+```
+npm install
+npm run dev
+```
+
+## Build
+```
+npm run build
+```
